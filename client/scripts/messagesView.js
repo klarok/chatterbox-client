@@ -20,6 +20,9 @@ var MessagesView = {
     let chat = MessageView.render(message);
     this.$chats.append(chat);
     $('#chats div:last-child .username').click(message.username, Friends.toggleStatus);
+    if (Friends.list.hasOwnProperty(message.username)) {
+      $('#chats div:last-child').css('font-weight', 'bold');
+    }
     //return chat;
   }
 
