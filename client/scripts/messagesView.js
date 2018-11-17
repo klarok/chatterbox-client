@@ -18,7 +18,7 @@ var MessagesView = {
     }
     
     let chat = MessageView.render(message);
-    this.$chats.before(chat);
+    this.$chats.append(chat);
     //return chat;
   }
 
