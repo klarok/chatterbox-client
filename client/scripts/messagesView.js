@@ -19,6 +19,7 @@ var MessagesView = {
     
     let chat = MessageView.render(message);
     this.$chats.append(chat);
+    $('#chats div:last-child .username').click(message.username, Friends.toggleStatus);
     //return chat;
   }
 
