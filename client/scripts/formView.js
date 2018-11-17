@@ -12,7 +12,8 @@ var FormView = {
     // on submit click, call render message on text
     let currUser = App.username;
     let message = $('form input#message').val();
-    Parse.create({username: currUser, text: message, roomname: 'hrsf108'});
+    let room = Rooms.currentRoom;
+    Parse.create({username: currUser, text: message, roomname: room});
     console.log('click!');
   },
 

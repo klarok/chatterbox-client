@@ -6,6 +6,7 @@ var MessagesView = {
   },
 
   render: function(results) {
+    this.$chats.empty();
     for (var i = 0; i < results.length; i++) {
       this.renderMessage(results[i]);
     }
@@ -20,9 +21,6 @@ var MessagesView = {
     let chat = MessageView.render(message);
     this.$chats.append(chat);
     $('#chats div:last-child .username').click(message.username, Friends.toggleStatus);
-    if (Friends.list.hasOwnProperty(message.username)) {
-      $('#chats div:last-child').css('font-weight', 'bold');
-    }
     //return chat;
   }
 

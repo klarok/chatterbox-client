@@ -7,6 +7,13 @@ var RoomsView = {
     this.$button.click(function() {
       Rooms.add();
     });
+    
+    this.$select.change(function() {
+      Rooms.enterRoom($(this).val());
+    });
+    
+    Rooms.currentRoom = 'Alw3ujdoiasjdao9uwrjaosjdosijdol';
+    this.renderRoom(Rooms.currentRoom);
   },
 
   render: function(results) {
@@ -20,11 +27,11 @@ var RoomsView = {
   },
   
   renderRoom: function(roomName) {
-    let room = RoomsView.view({ name: roomName });
+    let room = RoomsView.roomOption({ name: roomName });
     this.$select.append(room);
   },
   
-  view: _.template(`
+  roomOption: _.template(`
     <option value="<%- name %>"><%- name %></option>
     `)
 
