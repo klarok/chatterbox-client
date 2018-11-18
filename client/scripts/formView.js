@@ -10,11 +10,14 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
     // on submit click, call render message on text
-    let currUser = App.username;
-    let message = $('form input#message').val();
-    let room = Rooms.currentRoom;
-    Parse.create({username: currUser, text: message, roomname: room});
-    console.log('click!');
+    let message = {username: App.username, text: $('form input#message').val(), roomname: Rooms.currentRoom};
+    Parse.create(message, (data) => {
+      _.extend(message, data);
+      Messages.add(message);
+      MessagesView.renderOne(message);
+    });
+    // console.log('click!');
+    // console.log(submitted);
   },
 
   setStatus: function(active) {

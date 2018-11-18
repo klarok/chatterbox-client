@@ -18,7 +18,7 @@ var RoomsView = {
 
   render: function(results) {
     let list = {};
-    for (var i = 0; i < results.length; i++) {
+    for (let i = 0; i < results.length; i++) {
       if (!list.hasOwnProperty([results[i].roomname])) {
         this.renderRoom(results[i].roomname);
         list[results[i].roomname] = true;

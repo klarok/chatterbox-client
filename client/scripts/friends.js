@@ -19,7 +19,3 @@ var Friends = {
   }
 
 };
-
-    // if (Friends.list.hasOwnProperty(message.username)) {
-    //   $('#chats div:last-child').css('font-weight', 'bold');
-    // }
